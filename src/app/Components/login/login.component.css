@@ -1,0 +1,17 @@
+.grtd{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    align-items: center;
+}
+
+.ui.input {
+    color: #EE82EE
+}
+
+.ui.input input {
+    color: #EE82EE
+}   
