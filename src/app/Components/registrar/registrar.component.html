@@ -10,6 +10,12 @@
         <div class="ui stacked segment">
           <div class="field">
             <div class="ui left icon input">
+              <i class="user icon"></i>
+              <input type="text" name="Nombre" placeholder="Nombre">
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui left icon input">
               <i class="at icon"></i>
               <input type="text" name="Email" placeholder="Email">
             </div>
@@ -20,7 +26,7 @@
               <input class="ui violet text" type="password" name="Password" placeholder="Contraseña">
             </div>
           </div>
-          <div class="ui fluid large violet submit button">Login</div>
+          <div class="ui fluid large violet submit button">Registrar</div>
           <div class="ui error floating message bounceIn animated"></div>
         </div>
       </form>
@@ -28,10 +34,8 @@
     </div>
     <div class="row">
       <div class="ui message">
-        ¿Nuevo?
-        <a routerLink="/Registrar">Registra</a>
+        <a routerLink="/Login">Cancelar</a>
       </div>
-      <button class="ui inverted violet basic button transparent">Recuperar Contraseña</button>
     </div>
   </div>
 </div>

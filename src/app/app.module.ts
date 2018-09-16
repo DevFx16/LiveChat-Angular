@@ -4,11 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/login/login.component';
+import { RegistrarComponent } from './Components/registrar/registrar.component';
 
 
 //Rutas
 const appRoutes: Routes = [
   { path: 'Login', component: LoginComponent },
+  { path: 'Registrar', component: RegistrarComponent },
   { path: '**', redirectTo: 'Login' }
 ];
 
@@ -17,7 +19,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    RegistrarComponent
   ],
   imports: [
     BrowserModule,
