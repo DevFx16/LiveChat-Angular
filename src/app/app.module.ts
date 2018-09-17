@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegistrarComponent } from './Components/registrar/registrar.component';
+import { UsuariosService } from './Services/usuarios.service';
 
 
 //Rutas
@@ -26,7 +27,9 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [
+    UsuariosService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

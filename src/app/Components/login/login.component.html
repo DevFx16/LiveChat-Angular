@@ -1,3 +1,6 @@
+<div class="ui dimmer zoomInDown animated" [ngClass]="{'active': Usuario.Valid}">
+  <div class="ui huge text loader">Cargando...</div>
+</div>
 <div class="ui one column centered stackable grid container zoomIn animated">
   <div class="column center aligned">
     <div class="row">
@@ -20,7 +23,7 @@
               <input class="ui violet text" type="password" name="Password" placeholder="Contraseña">
             </div>
           </div>
-          <div class="ui fluid large violet submit button">Login</div>
+          <div class="ui fluid large violet submit button" (click)="Login()">Login</div>
           <div class="ui error floating message bounceIn animated"></div>
         </div>
       </form>

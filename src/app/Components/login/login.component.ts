@@ -10,7 +10,24 @@ declare var $: any;
 
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  Usuario: { Nombre: string; Email: string; Contraseña: string; Valid: boolean; };
+  Valid: boolean;
+
+  constructor() { 
+    this.Usuario = {
+      Nombre: '',
+      Email: '',
+      Contraseña: '',
+      Valid: false
+    }
+    this.Valid = false;
+  }
+
+  Login() : void {
+    setTimeout(() => {
+      this.Usuario.Valid = true;
+    }, 2000);
+  }
 
   ngOnInit() {
     $('.ui.form')

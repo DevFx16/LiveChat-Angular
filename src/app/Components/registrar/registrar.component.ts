@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuariosService } from '../../Services/usuarios.service';
+
+declare const $: any;
 
 @Component({
   selector: 'app-registrar',
@@ -7,7 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrarComponent implements OnInit {
 
-  constructor() { }
+  Usuario: { Nombre: string; Email: string; Contraseña: string; Valid: boolean; };
+  
+  constructor(private userService: UsuariosService) {
+    this.Usuario = {
+      Nombre: '',
+      Email: '',
+      Contraseña: '',
+      Valid: false
+    }
+  }
+
+  Registrar(): void {
+    setTimeout(() =>{
+      this.Usuario.Valid = true;
+    }, 3000)
+  }
 
   ngOnInit() {
     $('.ui.form')
