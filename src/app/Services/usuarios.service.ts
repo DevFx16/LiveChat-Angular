@@ -14,7 +14,9 @@ export class UsuariosService {
 
   async Login(Usuario: UsuarioLogin) {
     return await this.Http.post(Rutas.Login, Usuario).toPromise().then(user => {
-      localStorage.setItem('Usuario', JSON.stringify(new UsuarioLocal(user.Nombre, Usuario.Email, Usuario.Password, user.Foto, user.Token)));
+      localStorage.setItem('Usuario', JSON.stringify(user));
+      console.log(JSON.parse(localStorage.getItem('Usuario')).Token);
+
     });
   }
 
