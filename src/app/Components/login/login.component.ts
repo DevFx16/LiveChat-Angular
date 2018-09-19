@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuarioLogin } from '../../Models/usuario.model';
+import { UsuariosService } from '../../Services/usuarios.service';
+import * as swal from 'sweetalert';
 
 declare var $: any;
 
@@ -10,23 +13,22 @@ declare var $: any;
 
 export class LoginComponent implements OnInit {
 
-  Usuario: { Nombre: string; Email: string; Contraseña: string; Valid: boolean; };
+  Usuario: UsuarioLogin
   Valid: boolean;
 
-  constructor() { 
-    this.Usuario = {
-      Nombre: '',
-      Email: '',
-      Contraseña: '',
-      Valid: false
-    }
+  constructor(private userService: UsuariosService) {
+    this.Usuario = new UsuarioLogin('', '');
     this.Valid = false;
   }
 
-  Login() : void {
-    setTimeout(() => {
-      this.Usuario.Valid = true;
-    }, 2000);
+  Login(): void {
+    this.Valid = true;
+    this.userService.Login(this.Usuario).then(() => {
+      this.Valid = false;
+    }).catch(err => {
+      this.Valid = false;
+      sweetAlert('Error', err.error.Error, 'error');
+    })
   }
 
   ngOnInit() {

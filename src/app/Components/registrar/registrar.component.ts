@@ -31,7 +31,7 @@ export class RegistrarComponent implements OnInit {
       }).catch(err => {
         this.Valid = false;
         sweetAlert('Error', err.error.Error, 'error');
-      })
+      });
     }
   }
 

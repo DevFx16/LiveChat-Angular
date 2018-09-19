@@ -1,4 +1,4 @@
-<div class="ui dimmer zoomInDown animated" [ngClass]="{'active': Usuario.Valid}">
+<div class="ui dimmer zoomInDown animated" [ngClass]="{'active': Valid}">
   <div class="ui huge text loader">Cargando...</div>
 </div>
 <div class="ui one column centered stackable grid container zoomIn animated">
@@ -14,13 +14,13 @@
           <div class="field">
             <div class="ui left icon input">
               <i class="at icon"></i>
-              <input type="text" name="Email" placeholder="Email">
+              <input type="text" name="Email" placeholder="Email" [(ngModel)]="Usuario.Email">
             </div>
           </div>
           <div class="field">
             <div class="ui left icon input">
               <i class="lock icon"></i>
-              <input class="ui violet text" type="password" name="Password" placeholder="Contraseña">
+              <input class="ui violet text" type="password" name="Password" placeholder="Contraseña" [(ngModel)]="Usuario.Password">
             </div>
           </div>
           <div class="ui fluid large violet submit button" (click)="Login()">Login</div>
