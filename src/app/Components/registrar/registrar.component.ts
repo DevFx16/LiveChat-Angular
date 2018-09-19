@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from '../../Services/usuarios.service';
+import { UsuarioRegistro } from '../../Models/usuario.model';
+import { Router } from '@angular/router';
+import * as swal from 'sweetalert';
 
 declare const $: any;
 
@@ -10,21 +13,26 @@ declare const $: any;
 })
 export class RegistrarComponent implements OnInit {
 
-  Usuario: { Nombre: string; Email: string; Contraseña: string; Valid: boolean; };
-  
-  constructor(private userService: UsuariosService) {
-    this.Usuario = {
-      Nombre: '',
-      Email: '',
-      Contraseña: '',
-      Valid: false
-    }
+  Usuario: UsuarioRegistro;
+  Valid: boolean;
+
+  constructor(private userService: UsuariosService, private _Router: Router) {
+    this.Usuario = new UsuarioRegistro('', '', '', 'https://png2.kisspng.com/20171208/4a9/5a2b16a70db6f4.8758920715127732870562.png');
+    this.Valid = false;
   }
 
   Registrar(): void {
-    setTimeout(() =>{
-      this.Usuario.Valid = true;
-    }, 3000)
+    if (this.Usuario.Email.length > 0 && this.Usuario.Nombre.length > 0 && this.Usuario.Password.length > 0) {
+      this.Valid = true;
+      this.userService.Registrar(this.Usuario).then(user => {
+        sweetAlert('Exitoso', 'Registrado proceda al login', 'success').then(() => {
+          this._Router.navigate(['/Login']);
+        });
+      }).catch(err => {
+        this.Valid = false;
+        sweetAlert('Error', err.error.Error, 'error');
+      })
+    }
   }
 
   ngOnInit() {

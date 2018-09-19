@@ -9,6 +9,8 @@
 # dependencies
 /node_modules
 
+/src/Services/Rutas.ts
+
 # IDEs and editors
 /.idea
 .project
