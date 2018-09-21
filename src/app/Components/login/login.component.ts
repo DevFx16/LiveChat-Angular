@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioLogin } from '../../Models/usuario.model';
 import { UsuariosService } from '../../Services/usuarios.service';
 import * as swal from 'sweetalert';
+import { Router } from '@angular/router';
 
 declare var $: any;
 
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   Usuario: UsuarioLogin
   Valid: boolean;
 
-  constructor(private userService: UsuariosService) {
+  constructor(private userService: UsuariosService, private _Router: Router) {
     this.Usuario = new UsuarioLogin('', '');
     this.Valid = false;
   }
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit {
       this.Valid = true;
       this.userService.Login(this.Usuario).then(() => {
         this.Valid = false;
+        this._Router.navigate(['/Home']);
       }).catch(err => {
         this.Valid = false;
         sweetAlert('Error', err.error.Error, 'error');
