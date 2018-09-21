@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import Rutas from './Rutas';
+import * as crypto from 'crypto-js';
 import { UsuarioRegistro, UsuarioLogin, UsuarioLocal } from '../Models/usuario.model';
 
 @Injectable()
@@ -14,11 +15,12 @@ export class UsuariosService {
 
   async Login(Usuario: UsuarioLogin) {
     return await this.Http.post(Rutas.Login, Usuario).toPromise().then(user => {
-      localStorage.setItem('Usuario', JSON.stringify(user));
-      console.log(JSON.parse(localStorage.getItem('Usuario')).Token);
-
+      localStorage.setItem('User', crypto.AES.encrypt(JSON.stringify(Object.assign(user, { Email: Usuario.Email, Password: Usuario.Password })), Rutas.AuthEncrypt));
     });
   }
 
+  async ObtenerUser() {
+    return JSON.parse(crypto.AES.decrypt(localStorage.getItem('User'), Rutas.AuthEncrypt).toString(crypto.enc.Utf8));
+  }
 
 }

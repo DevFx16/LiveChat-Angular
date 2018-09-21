@@ -22,13 +22,15 @@ export class LoginComponent implements OnInit {
   }
 
   Login(): void {
-    this.Valid = true;
-    this.userService.Login(this.Usuario).then(() => {
-      this.Valid = false;
-    }).catch(err => {
-      this.Valid = false;
-      sweetAlert('Error', err.error.Error, 'error');
-    })
+    if (this.Usuario.Email.length > 0 || this.Usuario.Password.length > 0) {
+      this.Valid = true;
+      this.userService.Login(this.Usuario).then(() => {
+        this.Valid = false;
+      }).catch(err => {
+        this.Valid = false;
+        sweetAlert('Error', err.error.Error, 'error');
+      })
+    }
   }
 
   ngOnInit() {
