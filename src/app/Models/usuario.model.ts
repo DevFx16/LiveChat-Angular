@@ -21,5 +21,7 @@ export class UsuarioLocal {
         public Password: string,
         public Foto: string,
         public Token: string,
+        public Seguidos: number,
+        public Seguidores: number
     ) { }
 }

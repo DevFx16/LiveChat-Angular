@@ -12,19 +12,22 @@ import * as swal from 'sweetalert';
 export class HomeComponent implements OnInit {
 
   User: UsuarioLocal;
+  Valid: boolean;
 
-  constructor(private userService: UsuariosService, private _Router: Router) { }
-
-  ngOnInit() {
+  constructor(private userService: UsuariosService, private _Router: Router) {
     this.userService.ObtenerUser().then(data => {
       if (!data) {
         this._Router.navigate(['/Login']);
       } else {
-        this.User = new UsuarioLocal(data.Nombre, data.Email, data.Password, data.Foto, data.Token);
+        this.User = new UsuarioLocal(data.Nombre, data.Email, data.Password, data.Foto, data.Token, 20, 25);
       }
     }).catch(err => {
       this._Router.navigate(['/Login']);
-    })
+    });
+  }
+
+  ngOnInit() {
+
   }
 
 }
