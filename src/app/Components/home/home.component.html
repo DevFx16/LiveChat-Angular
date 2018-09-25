@@ -1,21 +1,23 @@
 <div class="ui dimmer zoomInDown animated" [ngClass]="{'active': Valid}">
   <div class="ui huge text loader">Cargando...</div>
 </div>
-<div class="ui three column centered grid container zoomIn animated">
-  <div class="four wide column">
-    <img class="ui small rounded centered image" [src]="User.Foto">
+<button class="ui violet button icon inverted" (click)="SideBar()">
+  <i class="large icon user circle"></i>
+</button>
+<div class="ui vertical sidebar menu inverted">
+  <div class="item">
+    <img class="ui small centered circular image" [src]="User.Foto">
     <div class="ui divider"></div>
-    <div class="ui labeled two item icon menu fluid inverted">
-      <div class="item">
-        <i class="large icon heartbeat"></i> Seguidos
-        <div class="floating ui violet label">{{User.Seguidos}}</div>
-      </div>
-      <div class="item">
-        <i class="large icon star"></i> Seguidores
-        <div class="floating ui violet label">{{User.Seguidores}}</div>
-      </div>
-    </div>
-    <div class="ui divider"></div>
+  </div>
+  <div class="item">
+    <i class="large icon heartbeat"></i> Seguidos
+    <div class="ui violet left pointing label">{{User.Seguidos}}</div>
+  </div>
+  <div class="item">
+    <i class="large icon star"></i> Seguidores
+    <div class="ui violet left pointing label">{{User.Seguidores}}</div>
+  </div>
+  <div class="item">
     <button class="ui violet button fluid">
       <i class="large icon image"></i>
       Cambiar Imagen
@@ -36,10 +38,17 @@
       Borrar Cuenta
     </button>
   </div>
-  <div class="eight wide column">
+</div>
+<div class="pusher">
+  <div class="ui grid two column" id="example1">
+    <div class="column">
+      <img class="ui fluid image" src="http://iconbug.com/data/bd/512/f329adad1100d9608c26b3f072aa016f.png">
+      <img class="ui fluid image" src="http://iconbug.com/data/bd/512/f329adad1100d9608c26b3f072aa016f.png">
+      <img class="ui fluid image" src="http://iconbug.com/data/bd/512/f329adad1100d9608c26b3f072aa016f.png">
+      <img class="ui fluid image" src="http://iconbug.com/data/bd/512/f329adad1100d9608c26b3f072aa016f.png">
+      <img class="ui fluid image" src="http://iconbug.com/data/bd/512/f329adad1100d9608c26b3f072aa016f.png">
+      <img class="ui fluid image" src="http://iconbug.com/data/bd/512/f329adad1100d9608c26b3f072aa016f.png">
 
-  </div>
-  <div class="four wide column">
-
+    </div>
   </div>
 </div>
