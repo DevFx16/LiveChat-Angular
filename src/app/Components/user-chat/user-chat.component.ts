@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 declare const $: any;
 
 @Component({
@@ -8,12 +8,10 @@ declare const $: any;
 })
 export class UserChatComponent implements OnInit {
 
-  height: string;
+  @Input() height: string;
   
   constructor() { }
 
-  ngOnInit() {
-    this.height = $(window).height() + 'px';
-  }
+  ngOnInit() {}
 
 }

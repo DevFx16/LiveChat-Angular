@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
     User: UsuarioLocal;
     Valid: boolean;
     items: ['', '', '']
+    height: string;
 
     constructor(private userService: UsuariosService, private _Router: Router) {
         this.userService.ObtenerUser().then(data => {
@@ -29,7 +30,10 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit() {
-
+        this.height = $(window).height() + 'px';
+        window.onresize = () => {
+            this.height = $(window).height() + 'px';
+        }
     }
 
     SideBar() {

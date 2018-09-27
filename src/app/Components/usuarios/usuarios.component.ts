@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 declare const $: any;
 @Component({
   selector: 'app-usuarios',
@@ -7,12 +7,14 @@ declare const $: any;
 })
 export class UsuariosComponent implements OnInit {
 
-  height: string;
+  @Input() height: string;
 
-  constructor() { }
+  constructor() { 
+
+  }
 
   ngOnInit() {
-    this.height = $(window).height() + 'px';
+
   }
 
 }
