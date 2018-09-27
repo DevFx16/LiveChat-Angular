@@ -1,10 +1,25 @@
 <div class="ui dimmer zoomInDown animated" [ngClass]="{'active': Valid}">
   <div class="ui huge text loader">Cargando...</div>
 </div>
-<button class="ui violet button icon inverted" (click)="SideBar()">
-  <i class="large icon user circle"></i>
-</button>
-<div class="ui vertical sidebar menu inverted">
+<div class="ui fixed menu inverted">
+  <div class="item">
+    <div class="ui labeled button" (click)="SideBar()">
+      <div class="ui violet button">
+        Perfil
+      </div>
+      <div class="ui basic violet left pointing label">
+        <i class="user circle large icon"></i>
+      </div>
+    </div>
+  </div>
+  <div class="right item">
+    <div class="ui icon input">
+      <input type="text" placeholder="Buscar Usuarios">
+      <i class="search icon"></i>
+    </div>
+  </div>
+</div>
+<div class="ui vertical sidebar push menu inverted">
   <div class="item">
     <img class="ui small centered circular image" [src]="User.Foto">
     <div class="ui divider"></div>
@@ -40,14 +55,11 @@
   </div>
 </div>
 <div class="pusher">
-  <div class="ui grid two column" id="example1">
-    <div class="column">
-      <img class="ui fluid image" src="http://iconbug.com/data/bd/512/f329adad1100d9608c26b3f072aa016f.png">
-      <img class="ui fluid image" src="http://iconbug.com/data/bd/512/f329adad1100d9608c26b3f072aa016f.png">
-      <img class="ui fluid image" src="http://iconbug.com/data/bd/512/f329adad1100d9608c26b3f072aa016f.png">
-      <img class="ui fluid image" src="http://iconbug.com/data/bd/512/f329adad1100d9608c26b3f072aa016f.png">
-      <img class="ui fluid image" src="http://iconbug.com/data/bd/512/f329adad1100d9608c26b3f072aa016f.png">
-      <img class="ui fluid image" src="http://iconbug.com/data/bd/512/f329adad1100d9608c26b3f072aa016f.png">
+  <div class="ui grid two column">
+    <div class="nine wide column">
+      <app-usuarios></app-usuarios>
+    </div>
+    <div class="seven wide column">
 
     </div>
   </div>

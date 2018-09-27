@@ -34,11 +34,6 @@ export class HomeComponent implements OnInit {
 
     SideBar() {
         $('.ui.sidebar')
-            .sidebar('setting', {
-                dimPage: false,
-                transition: 'scale down'
-            })
-        $('.ui.sidebar')
             .sidebar('toggle')
     }
 

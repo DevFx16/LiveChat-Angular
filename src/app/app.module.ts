@@ -9,6 +9,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegistrarComponent } from './Components/registrar/registrar.component';
 import { UsuariosService } from './Services/usuarios.service';
+import { UsuariosComponent } from './Components/usuarios/usuarios.component';
 
 
 //Rutas
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
     AppComponent,
     LoginComponent,
     RegistrarComponent,
-    HomeComponent
+    HomeComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,
