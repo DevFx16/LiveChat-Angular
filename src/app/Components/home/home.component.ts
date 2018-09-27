@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.height = $(window).height() + 'px';
+        this.height = ($(window).height() - $('.fixed.menu').height() - 13) + 'px';
         window.onresize = () => {
             this.height = $(window).height() + 'px';
         }

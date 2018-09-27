@@ -1,24 +1,6 @@
 <div class="ui dimmer zoomInDown animated" [ngClass]="{'active': Valid}">
   <div class="ui huge text loader">Cargando...</div>
 </div>
-<div class="ui fixed menu inverted">
-  <div class="item">
-    <div class="ui labeled button" (click)="SideBar()">
-      <div class="ui violet button">
-        Perfil
-      </div>
-      <div class="ui basic violet left pointing label">
-        <i class="user circle large icon"></i>
-      </div>
-    </div>
-  </div>
-  <div class="right item">
-    <div class="ui icon input">
-      <input type="text" placeholder="Buscar Usuarios">
-      <i class="search icon"></i>
-    </div>
-  </div>
-</div>
 <div class="ui vertical sidebar push menu inverted">
   <div class="item">
     <img class="ui small centered circular image" [src]="User.Foto">
@@ -54,12 +36,32 @@
     </button>
   </div>
 </div>
-<div class="pusher zoomInDown animated">
-  <div class="ui grid two column">
+<div class="pusher">
+  <div class="ui fixed menu inverted">
+    <div class="item">
+      <div class="ui labeled button" (click)="SideBar()">
+        <div class="ui violet button">
+          Perfil
+        </div>
+        <div class="ui basic violet left pointing label">
+          <i class="user circle large icon"></i>
+        </div>
+      </div>
+    </div>
+    <div class="right item">
+      <div class="ui icon input">
+        <input type="text" placeholder="Buscar Usuarios">
+        <i class="search icon"></i>
+      </div>
+    </div>
+  </div>
+  <div class="ui two column centered stackable grid zoomInDown animated">
     <div class="ten wide column">
+      <div class="ui divider"></div>
       <app-usuarios [height]="height"></app-usuarios>
     </div>
     <div class="six wide column">
+      <div class="ui divider"></div>
       <app-user-chat [height]="height"></app-user-chat>
     </div>
   </div>
