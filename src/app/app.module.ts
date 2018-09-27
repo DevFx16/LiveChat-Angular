@@ -10,6 +10,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { RegistrarComponent } from './Components/registrar/registrar.component';
 import { UsuariosService } from './Services/usuarios.service';
 import { UsuariosComponent } from './Components/usuarios/usuarios.component';
+import { UserChatComponent } from './Components/user-chat/user-chat.component';
 
 
 //Rutas
@@ -28,7 +29,8 @@ const appRoutes: Routes = [
     LoginComponent,
     RegistrarComponent,
     HomeComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    UserChatComponent
   ],
   imports: [
     BrowserModule,
