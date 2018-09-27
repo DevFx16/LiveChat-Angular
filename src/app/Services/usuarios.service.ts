@@ -13,6 +13,10 @@ export class UsuariosService {
     return await this.Http.post(Rutas.Registrar, Usuario).toPromise();
   }
 
+  async ResetContraseña(Email: string) {
+    return await this.Http.post(Rutas.Reset, {Email: Email}).toPromise();
+  }
+
   async Login(Usuario: UsuarioLogin) {
     return await this.Http.post(Rutas.Login, Usuario).toPromise().then(user => {
       localStorage.setItem('User', crypto.AES.encrypt(JSON.stringify(Object.assign(user, { Email: Usuario.Email, Password: Usuario.Password })), Rutas.AuthEncrypt));

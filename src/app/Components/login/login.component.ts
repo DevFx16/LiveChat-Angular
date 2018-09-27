@@ -35,6 +35,22 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  Reset(): void {
+    if(this.Usuario.Email.length > 0){
+      this.Valid = true;
+      this.userService.ResetContraseña(this.Usuario.Email).then(() => {
+        this.Valid = false;
+        sweetAlert('Correo Enviado', 'Se ha enviado un correo electronico', 'success');
+      }).catch(err => {
+        this.Valid = false;
+        console.log(err);
+        sweetAlert('Error', err.error.Error, 'error');
+      });
+    }else{
+      sweetAlert('Error', 'Debe escribir el email', 'error');
+    }
+  }
+
   ngOnInit() {
     $('.ui.form')
       .form({
