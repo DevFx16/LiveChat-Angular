@@ -14,7 +14,7 @@ export class UsuariosService {
   }
 
   async ResetContraseña(Email: string) {
-    return await this.Http.post(Rutas.Reset, {Email: Email}).toPromise();
+    return await this.Http.put(Rutas.Reset, {Email: Email}).toPromise();
   }
 
   async Login(Usuario: UsuarioLogin) {

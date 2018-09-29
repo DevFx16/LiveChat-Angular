@@ -58,7 +58,9 @@
   <div class="ui two column centered stackable grid zoomInDown animated">
     <div class="ten wide column">
       <div class="ui divider"></div>
-      <app-usuarios [height]="height"></app-usuarios>
+      <div class="scroll" [ngStyle]="{'height': height}">
+        <app-usuarios ></app-usuarios>
+      </div>
     </div>
     <div class="six wide column">
       <div class="ui divider"></div>

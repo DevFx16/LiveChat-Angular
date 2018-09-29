@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
 
     User: UsuarioLocal;
     Valid: boolean;
-    items: ['', '', '']
     height: string;
 
     constructor(private userService: UsuariosService, private _Router: Router) {
@@ -30,7 +29,7 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.height = ($(window).height() - $('.fixed.menu').height() - 13) + 'px';
+        this.height = ($(window).height() - $('.fixed.menu').height() - $('.ui.divider').height() - 20) + 'px';
         window.onresize = () => {
             this.height = $(window).height() + 'px';
         }
