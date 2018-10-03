@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
                 this._Router.navigate(['/Login']);
             } else {
                 this.User = new UsuarioLocal(data.Nombre, data.Email, data.Password, data.Foto, data.Token, 20, 25);
+                this.userService.VerficarEstado(this.User);
             }
         }).catch(err => {
             this._Router.navigate(['/Login']);
