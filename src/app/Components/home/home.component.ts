@@ -22,7 +22,15 @@ export class HomeComponent implements OnInit {
                 this._Router.navigate(['/Login']);
             } else {
                 this.User = new UsuarioLocal(data.Nombre, data.Email, data.Password, data.Foto, data.Token, 20, 25);
-                this.userService.VerficarEstado(this.User);
+                this.userService.VerficarEstado(this.User).then(json => {
+                    console.log(json);
+                }).catch(err => {
+                    if (data) {
+                        this.userService.BorrarTodo();
+                        sweetAlert('Sesión Caducada', 'Vuelva a iniciar sesión', 'info');
+                    }
+                    this._Router.navigate(['/Login']);
+                })
             }
         }).catch(err => {
             this._Router.navigate(['/Login']);

@@ -43,7 +43,6 @@ export class LoginComponent implements OnInit {
         sweetAlert('Correo Enviado', 'Se ha enviado un correo electronico', 'success');
       }).catch(err => {
         this.Valid = false;
-        console.log(err);
         sweetAlert('Error', err.error.Error, 'error');
       });
     }else{

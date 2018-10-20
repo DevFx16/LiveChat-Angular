@@ -23,26 +23,20 @@ export class UsuariosService {
         });
     }
 
+    async BorrarTodo() {
+        localStorage.clear();
+    }
+
     async ObtenerUser() {
         return JSON.parse(crypto.AES.decrypt(localStorage.getItem('User'), Rutas.AuthEncrypt).toString(crypto.enc.Utf8));
     }
 
     async VerficarEstado(Usuario: UsuarioLocal) {
-        return new Promise((resolve, reject) => {
-            const headers = new HttpHeaders()
-                .set('Content-Type', 'application/json')
-                .set('Accept', 'application/json')
-                .set('token', Usuario.Token)
-                .set('email', Usuario.Email)
-                .set('password', Usuario.Password)
-            this.Http.get(Rutas.Token, { headers: headers }).toPromise().then(json => {
-                console.log(json);
-                resolve();
-            }).catch(err => {
-                console.log(err);
-                reject();
-            })
-        })
+        const headers = new HttpHeaders()
+            .set('token', Usuario.Token)
+            .set('email', Usuario.Email)
+            .set('password', Usuario.Password)
+        return this.Http.get(Rutas.Token, { headers: headers }).toPromise();
     }
 
 }
