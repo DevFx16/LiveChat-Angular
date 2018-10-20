@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
     height: string;
 
     constructor(private userService: UsuariosService, private _Router: Router) {
+        this.Valid = true;
         this.userService.ObtenerUser().then(data => {
             if (!data) {
                 this._Router.navigate(['/Login']);
@@ -32,6 +33,7 @@ export class HomeComponent implements OnInit {
                     this._Router.navigate(['/Login']);
                 })
             }
+            this.Valid = false;
         }).catch(err => {
             this._Router.navigate(['/Login']);
         });
@@ -42,6 +44,21 @@ export class HomeComponent implements OnInit {
         window.onresize = () => {
             this.height = $(window).height() + 'px';
         }
+    }
+
+    Cerrar() {
+        sweetAlert({
+            title: '¿Esta seguro de querer salir?',
+            icon: 'warning',
+            buttons: ['Cancelar', 'Salir'],
+            dangerMode: true
+        }).then(value => {
+            if (value) {
+                this.SideBar();
+                this.userService.BorrarTodo();
+                this._Router.navigate(['/Login']);
+            }
+        })
     }
 
     SideBar() {
